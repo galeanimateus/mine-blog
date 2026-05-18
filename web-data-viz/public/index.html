@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MineBlog | Página Inicial</title>
+
+    <script src="js/abrir-menu.js"></script>
+
+     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/fonte.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html"><img src="css/assets/fundo/logo-mine-remove.png" alt="logo-minecraft"></a></div>
+            <div id="div_topic" class="topic">
+                <ul>
+                    <li><a href="index.html#div-seja-bem-vindo">SOBRE</a></li>
+                    <li><a href="quiz.html">QUIZ</a></li>
+                    <li><a href="pessoal.html">PESSOAL</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button onclick="abrirMenu()" class="dropbtn">
+                    <img src="css/assets/icons/profile-icon-pixel-removebg-preview.png" alt="icon-profile"> CONTA
+                </button>
+                <div id="menuConta" class="dropdown-content">
+                    <a href="login.html" class="item-entrar">ENTRAR</a>
+                    <a href="cadastro.html">CRIAR CONTA</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main-index">
+        <div id="img-minecraft">
+            <img id="img1" src="css/assets/fundo/minecraft-bundle.png" alt="wallpaper-minecraft">
+            <div id="div-seja-bem-vindo">
+                <h1 class="fonte-mine">Seja bem-vindo!</h1>
+                <div class="div-cinza-claro">
+    
+                    <span id="comentario" class="fonte-mine">
+                        Se você gosta de minecraft e está buscando sobre mais informações e curiosidades sobre o jogo você está no
+                        lugar certo! <br>
+                        <br>
+                        Neste site você vai encontrar tudo sobre o mundo do minecraft e as inúmeras coisas que você pode fazer dentro dele.
+                    </span>
+    
+                </div>
+            </div>
+            <img id="img2" src="css/assets/fundo/jogando-mine.jpg" alt="jogando-mine">
+        </div>
+        <div id="conteiner">
+            <div id="div1">
+                <div class="div-filho">
+                    <img id="img1" src="css/assets/livro/150px-Enchanting_Table.gif" alt="mesa-encantamento">
+                    <button class="fonte-mine botao-mine">Encantamentos</button>
+                </div>
+            </div>
+
+            <div id="div2">
+                <div class="div-filho">
+                    <img id="img2" src="css/assets/poções/conjunto-pocoes-remove.png" alt="conjunto-poções"> 
+                    <button class="fonte-mine botao-mine">Poções</button>
+                </div>
+            </div>
+
+            <div id="div3">
+                <div class="div-filho">
+                    <img id="img3" src="css/assets/armadura/armadura-diamante.webp" alt="armadura-diamante">
+                    <button class="fonte-mine botao-mine">Armaduras</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <div>
+                <p>Site Desenvolvido por: Mateus Borges Galeani - 2026</p>
+            </div>
+            <ul>
+                <a href="https://github.com/galeanimateus/meu-projeto-individual">GitHub</a>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MineBlog | Cadastro</title>
+
+  <script src="./js/abrir-menu.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fonte.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html"><img src="css/assets/fundo/logo-mine-remove.png"
+                        alt="logo-minecraft"></a></div>
+            <div id="div_topic" class="topic">
+                <ul>
+                    <li><a href="index.html">SOBRE</a></li>
+                    <li><a href="quiz.html">QUIZ</a></li>
+                    <li><a href="pessoal.html">PESSOAL</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button onclick="abrirMenu()" class="dropbtn">
+                    <img src="css/assets/icons/profile-icon-pixel-removebg-preview.png" alt="icon-profile"> CONTA
+                </button>
+                <div id="menuConta" class="dropdown-content">
+                    <a href="login.html" class="item-entrar">ENTRAR</a>
+                    <a href="cadastro.html">CRIAR CONTA</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main-index">
+        <div id="div_login">
+            <div id="div_pai_cadastro">
+                <div class="div-filho" id="div_login_filho">
+                    <h1 class="fonte-mine">Cadastro Usuário</h1>
+                    <div id="div_neto">
+                        <span class="fonte-mine">Nome *</span> <br>
+                        <input type="text" id="ipt_nome" class="fonte-mine" oninput="validarNome()" placeholder="Steve">
+                        <div id="div_msg_erro1" class="erro-cadastro fonte-mine"></div>
+                        <br>
+                        <span class="fonte-mine">Data Nascimento *</span> <br>
+                        <input type="date" id="ipt_dt_nascimento" class="fonte-mine" oninput="validarDtNasc()">
+                        <div id="div_msg_erro2" class="erro-cadastro fonte-mine"></div>
+                        <br>
+                        <span class="fonte-mine">Email *</span> <br>
+                        <input type="email" id="ipt_email" class="fonte-mine" oninput="validarEmail()" placeholder="steve@sptech.school">
+                        <div id="div_msg_erro3" class="erro-cadastro fonte-mine"></div>
+                        <br>
+                        <span class="fonte-mine">Senha *</span> <br>
+                        <input type="password" id="ipt_senha" class="fonte-mine" oninput="validarSenha()" placeholder="**********">
+                        <div id="div_msg_erro4" class="erro-cadastro fonte-mine"></div>
+                        <br>
+                        <span class="fonte-mine">Confirmar Senha *</span> <br>
+                        <input type="password" id="ipt_confirmar_senha" class="fonte-mine" oninput="validarConfSenha()"
+                            placeholder="**********">
+                        <div id="div_msg_erro5" class="erro-cadastro fonte-mine"></div>
+                        <div class="div-button" id="div_but_cad">
+                            <button class="botao-mine2 fonte-mine" onclick="cadastrar()">Cadastrar</button>
+                            <div id="div_cad_concluido" class="concluido"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <div>
+                <p>Site Desenvolvido por: Mateus Borges Galeani - 2026</p>
+            </div>
+            <ul>
+                <a href="https://github.com/galeanimateus/meu-projeto-individual">GitHub</a>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
+<script>
+
+let especial = ["@", "#", "$", "%", "&", "*", "!", "?", "_", "-"];
+let num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+let maiscula = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+let minuscula = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+let valNome = false;
+let valDtNasc = false;
+let valEmail = false;
+let valSenha = false;
+let valConfSenha = false;
+
+function validarNome(){
+    let  nome = ipt_nome.value;
+    if (nome.length < 1){
+        div_msg_erro1.innerHTML = `O nome deve ter no mínimo 1 caractere!`;
+        valNome = false;
+    } else {
+        div_msg_erro1.innerHTML = ``;
+        valNome = true;
+    }
+}
+
+function validarDtNasc(){
+    let  dt_nascimento = ipt_dt_nascimento.value;
+    if (dt_nascimento == ``){
+        div_msg_erro2.innerHTML = `Insira uma data válida!`;
+        valDtNasc = false;
+    } else {
+        div_msg_erro2.innerHTML = ``;
+        valDtNasc = true;
+    }
+}
+
+function validarEmail(){
+    let email =  ipt_email.value;
+    let temArroba = email.includes('@');
+    let temPonto = email.includes('.');
+    if (temArroba && temPonto){
+        div_msg_erro3.innerHTML = ``;
+        valEmail = true;
+    } else {
+        div_msg_erro3.innerHTML = `O email deve conter '@' e '.'!`
+        valEmail = false;
+    }
+}
+
+function validarSenha(){
+
+    let  senha = ipt_senha.value;
+    let temEspecial = false;
+    let temNum = false;
+    let temMaiscula = false;
+    let temMinuscula = false;
+    let minCaracteres = (senha.length >= 8);  
+    let msg = `A senha deve conter: <br>`;
+
+    for (let i = 0; i < senha.length ; i++){
+        let caractere = senha[i];
+        if (especial.includes(caractere)){ temEspecial = true;}
+        if (num.includes(caractere)){ temNum = true;}
+        if (maiscula.includes(caractere)){ temMaiscula = true;}
+        if (minuscula.includes(caractere)){ temMinuscula = true;}
+    }
+
+    if (!temEspecial){msg += `- no mínimo 1 caracter especial <br> (@, #, $, %, &, *, !, ?, _, -). <br>`}
+    if (!temNum){msg += `- no mínimo 1 número (0 - 9). <br>`}
+    if (!temMaiscula){msg += `- no mínimo 1 letra maiúscula <br>`}
+    if (!temMinuscula){msg += `- no mínimo 1 letra minúscula <br>`}
+    if (!minCaracteres){msg += `- no mínimo 8 caracteres <br>`}
+
+    if(temEspecial && temMaiscula && temMinuscula && temNum && minCaracteres){
+        msg = ``;
+        valSenha = true;
+    } else {
+        valSenha = false;
+    }
+    div_msg_erro4.innerHTML = msg;
+}
+
+function validarConfSenha(){
+    let confirmarSenha = ipt_confirmar_senha.value;
+    let senha = ipt_senha.value;
+    if(confirmarSenha != senha){
+        div_msg_erro5.innerHTML = `Senhas diferentes!`
+        valConfSenha = false;
+    } else {
+        div_msg_erro5.innerHTML = ``
+        valConfSenha = true;
+    }
+
+}
+
+  function cadastrar() {
+
+    let nome = ipt_nome.value;
+    let dt_nascimento = ipt_dt_nascimento.value;
+    let email =  ipt_email.value;
+    let senha = ipt_senha.value;
+    let confirmarSenha = ipt_confirmar_senha.value;
+
+    if(valNome && valDtNasc && valEmail && valSenha && valConfSenha){
+        
+      fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nome,
+        emailServer: email,
+        dt_nascimentoServer: dt_nascimento,
+        senhaServer: senha
+      }),
+    })
+      .then(function (resposta) {
+        div_cad_concluido.innerHTML = "resposta: ", resposta;
+
+        if (resposta.ok) {
+          
+          div_cad_concluido.innerHTML =
+            "Cadastro realizado com sucesso! <br> Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "3000");
+
+          limparFormulario();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+    }
+  }
+
+  function limparFormulario() {
+    ipt_nome.value = "";
+    ipt_dt_nascimento.value = "";
+    ipt_email.value = "";
+    ipt_senha.value = "";
+    ipt_confirmar_senha.value = "";
+}
+</script>
