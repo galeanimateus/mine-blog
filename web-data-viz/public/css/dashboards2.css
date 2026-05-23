@@ -1,3 +1,44 @@
-.nav{
-    
+.layout-dashboard{
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+}
+.sidebar{
+    background-color: whitesmoke;
+    color: black;
+    width: 250px;
+}
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+}
+.aba{
+    padding: 10px;
+    width: 200px;
+    margin: 20px;
+    text-align: center;
+    font-size: large;
+    list-style: none;
+}
+.aba:hover{
+    border-radius: 10px;
+    border: solid rgba(0, 0, 0, 0.54) 3px;
+}
+.botao-sair{
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+.conteudo-principal{
+    flex: 1;
+    padding: 20px;
+}
+.fundo-grafico{
+    /* background-image: url('./assets/fundo/fundo-pedra.jpg'); */
+    background-color: white;
+}
+canvas{
+    margin: 5px;
 }

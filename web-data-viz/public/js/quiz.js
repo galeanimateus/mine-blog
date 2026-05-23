@@ -1,16 +1,26 @@
 const grid = document.querySelector('.grid'); // querySelector procura o elemento no 'document' com o atributo do CSS (no caso é a class .grid)
 
 const itens = [
-     "argila",
-     "balde-leite",
-     "bola-de-slime", 
-     "bussola", 
-     "cenoura", 
-     "diamante", 
-     "lagrima-de-ghast", 
-     "perola-do-fim", 
-     "tesoura", 
-     "vara-de-pesca"
+        "argila",
+        "balde-leite",
+        "bola-de-slime", 
+        "bussola", 
+        "cenoura", 
+        "diamante", 
+        "lagrima-de-ghast", 
+        "perola-do-fim", 
+        "tesoura", 
+        "vara-de-pesca",
+        "argila",
+        "balde-leite",
+        "bola-de-slime", 
+        "bussola", 
+        "cenoura", 
+        "diamante", 
+        "lagrima-de-ghast", 
+        "perola-do-fim", 
+        "tesoura", 
+        "vara-de-pesca"
     ]  // array com os nomes das imagens
 
 // Função para criar as cartas
@@ -34,10 +44,24 @@ function criarCarta(item){
 
     return carta;
 }
+function embaralhar(numero){
+
+    if (numero > 1){
+
+    } else if (numero < 0 ){
+
+    } else {
+        
+    }
+}
 
 function carregarJogo(){
 
-    itens.forEach((item) => {
+    const duplicarItens = [...itens, ...itens];
+
+    const listaEnbaralhada = duplicarItens.sort();
+
+    listaEnbaralhada.forEach((item) => {
 
         const carta = criarCarta(item);
         grid.appendChild(carta);

@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboards2.css">
     <link rel="stylesheet" href="../css/fonte.css">
+
+    <script src="../js/abrir-menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -17,9 +20,9 @@
                             alt="logo-minecraft"></a></div>
                 <div id="div_topic" class="topic">
                     <ul>
-                        <li><a href="index.html">SOBRE</a></li>
-                        <li><a href="quiz.html">QUIZ</a></li>
-                        <li><a href="pessoal.html">PESSOAL</a></li>
+                        <li><a href="../index.html">SOBRE</a></li>
+                        <li><a href="../quiz.html">QUIZ</a></li>
+                        <li><a href="../pessoal.html">PESSOAL</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
@@ -27,12 +30,80 @@
                         <img src="../css/assets/icons/profile-icon-pixel-removebg-preview.png" alt="icon-profile"> CONTA
                     </button>
                     <div id="menuConta" class="dropdown-content">
-                        <a href="login.html" class="item-entrar">ENTRAR</a>
-                        <a href="cadastro.html">CRIAR CONTA</a>
+                        <a href="../login.html" class="item-entrar">ENTRAR</a>
+                        <a href="../cadastro.html">CRIAR CONTA</a>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
+    <div class="layout-dashboard">
+        <aside class="sidebar">
+            <div class="conteiner">
+                <ul>
+                  <li class="aba"><a href="" >INICIO</a></li>
+                  <li class="aba"><a href="" >MEIO</a></li> 
+                  <li class="aba"><a href="" >FIM</a></li>
+                </ul>
+                <div class="botao-sair">
+                  <li class="aba"><a href="">SAIR</a></li>
+                </div>
+            </div>
+        </aside>
+        <main class="conteudo-principal">
+            <div class="cabecalho"></div>
+            <div class="kpi"></div>
+                <div class="fundo-grafico">
+                    <canvas id="myChart1"></canvas>
+                    <canvas id="myChart2"></canvas>
+                </div>
+        </main>
+    </div>
+    <footer>
+
+    </footer>
 </body>
 </html>
+<script>
+  const ctx1 = document.getElementById('myChart1');
+  const ctx2 = document.getElementById('myChart2');
+
+  const graficoUm =  new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+    new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
