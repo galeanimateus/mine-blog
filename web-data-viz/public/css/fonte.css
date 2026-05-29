@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Monocraft', monospace, Arial, Helvetica, sans-serif;
+  text-shadow: 0px 1px 1px rgb(50, 50, 50);
 }
 
 @font-face {
@@ -12,6 +13,3 @@
     font-style: normal;
 }
 
-.fonte-mine{
-    font-family: 'Monocraft', monospace, Arial, Helvetica, sans-serif;
-}

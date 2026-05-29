@@ -434,3 +434,41 @@ footer > p{
     align-items: center;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
+.conteiner-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    max-width: 90vw;
+    margin: 50px auto 50px auto;
+    background-color: #6c6c6c;
+    padding: 20px;
+    border: ridge 15px white;
+    box-shadow: 0px 5px 20px rgba(23, 23, 23, 0.478);
+
+}
+
+.quadro{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.quadro img {
+    width: 100px;
+    height: 100px;
+    margin: 10px 20px 10px 10px;
+}
+
+.texto{
+
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    min-height: 205px;
+}
+

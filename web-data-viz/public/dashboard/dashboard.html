@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MineBlog | Dashboards</title>
 
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboards2.css">
+    <link rel="stylesheet" href="../css/fonte.css">
     
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
@@ -23,14 +26,35 @@
 <!-- <body onload=" atualizarFeed()"> -->
 
 <body>
-
-    <div class="janela">
-        <div class="header-left">
-            <h1>AquaTech</h1>
-
+     <div class="layout-dashboard">
+        <aside class="sidebar">
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
+            <ul>
+                <li class="aba"><a href="" >INICIO</a></li>
+                <li class="aba"><a href="" >MEIO</a></li> 
+                <li class="aba"><a href="" >FIM</a></li>
+            </ul>
+            <div class="botao-sair" onclick="limparSessao()">
+                        <h3>Sair</h3>
+            </div>
+        </aside>
+        <main class="conteudo-principal">
+            <div class="cabecalho"></div>
+            <div class="kpi"></div>
+                <div class="fundo-grafico">
+                    <canvas id="myChart1"></canvas>
+                    <canvas id="myChart2"></canvas>
+                </div>
+        </main>
+    </div>
+    <footer>
+
+    </footer>
+    <!-- <div class="janela">
+        <div class="header-left">
+            <h1>AquaTech</h1>
 
             <div class="btn-nav-white">
                 <a href="./cards.html">
@@ -50,10 +74,6 @@
                 </a>
             </div>
 
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
         </div>
 
         <div class="dash">
@@ -66,7 +86,7 @@
             <div id="graficos">
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 </body>

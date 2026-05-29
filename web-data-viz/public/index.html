@@ -9,6 +9,7 @@
     <title>MineBlog | Página Inicial</title>
 
     <script src="js/abrir-menu.js"></script>
+    <script src="js/abrir-menu.js"></script>
 
      <link rel="stylesheet" href="css/style.css">
      <link rel="stylesheet" href="css/fonte.css">
@@ -21,7 +22,7 @@
             <div class="logo"><a href="index.html"><img src="css/assets/fundo/logo-mine-remove.png" alt="logo-minecraft"></a></div>
             <div id="div_topic" class="topic">
                 <ul>
-                    <li><a href="index.html#div-seja-bem-vindo">SOBRE</a></li>
+                    <li><a href="index.html#div-seja-bem-vindo" id="a_sobre">SOBRE</a></li>
                     <li><a href="quiz.html">QUIZ</a></li>
                     <li><a href="pessoal.html">PESSOAL</a></li>
                 </ul>
@@ -59,21 +60,21 @@
             <div id="div1">
                 <div class="div-filho">
                     <img id="img1" src="css/assets/livro/150px-Enchanting_Table.gif" alt="mesa-encantamento">
-                    <button class="fonte-mine botao-mine">Encantamentos</button>
+                    <button class="fonte-mine botao-mine" onclick="jogarParaEncatamentos()">Encantamentos</button>
                 </div>
             </div>
 
             <div id="div2">
                 <div class="div-filho">
                     <img id="img2" src="css/assets/poções/conjunto-pocoes-remove.png" alt="conjunto-poções"> 
-                    <button class="fonte-mine botao-mine">Poções</button>
+                    <button class="fonte-mine botao-mine" onclick="jogarParaPocoes()">Poções</button>
                 </div>
             </div>
 
             <div id="div3">
                 <div class="div-filho">
                     <img id="img3" src="css/assets/armadura/armadura-diamante.webp" alt="armadura-diamante">
-                    <button class="fonte-mine botao-mine">Armaduras</button>
+                    <button class="fonte-mine botao-mine" onclick="jogarParaArmaduras()">Armaduras</button>
                 </div>
             </div>
         </div>
@@ -90,3 +91,25 @@
     </footer>
 </body>
 </html>
+<script>
+    function jogarParaEncatamentos(){
+
+        setTimeout(() => {
+            window.location = "./encatamentos.html";
+        },);
+    }
+
+    function jogarParaArmaduras(){
+
+        setTimeout(() => {
+            window.location = "./armaduras.html";
+        },);
+    }
+
+    function jogarParaPocoes(){
+
+        setTimeout(() => {
+            window.location = "./pocoes.html";
+        },);
+    }
+</script>

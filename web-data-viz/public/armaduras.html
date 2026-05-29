@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineBlog - Armaduras</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/fonte.css">
+    <link rel="stylesheet" href="./css/armadura.css">
+
+    <script src="./js/abrir-menu.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html"><img src="css/assets/fundo/logo-mine-remove.png" alt="logo-minecraft"></a></div>
+            <div id="div_topic" class="topic">
+                <ul>
+                    <li><a href="index.html#div-seja-bem-vindo" id="a_sobre">SOBRE</a></li>
+                    <li><a href="quiz.html">QUIZ</a></li>
+                    <li><a href="pessoal.html">PESSOAL</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button onclick="abrirMenu()" class="dropbtn">
+                    <img src="css/assets/icons/profile-icon-pixel-removebg-preview.png" alt="icon-profile"> CONTA
+                </button>
+                <div id="menuConta" class="dropdown-content">
+                    <a href="login.html" class="item-entrar">ENTRAR</a>
+                    <a href="cadastro.html">CRIAR CONTA</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="layout-armadura">
+        <div class="quadro">
+            <div class="titulo">
+                <h1>Calculadora de Danos</h1>
+                <h4>Veja o quanto sua armadura te proteje</h4> <br>
+                Selecione quais armaduras você quer:
+            </div>
+            <div class="grid">
+                <div id="div_capacete">
+                    Capacete: <br>
+                    <select onchange="aparecerCapacete()" id="slct_capacete" class="grid-select">
+                        <option value="" disabled selected hidden>Selecione uma opção</option>
+                        <option value="couro">Couro</option>
+                        <option value="malha">Malha</option>
+                        <option value="ouro">Ouro</option>
+                        <option value="ferro">Ferro</option>
+                        <option value="diamante">Diamante</option>
+                        <option value="netherite">Netherite</option>
+                    </select>
+                </div>
+
+                <div id="div_img_capacete"></div>
+
+                <div id="div_peitoral">
+                    Peitoral: <br>
+                    <select id="slct_peitoral" onchange="aparecerPeitoral()" class="grid-select">
+                        <option value="" disabled selected hidden>Selecione uma opção</option>
+                        <option value="Couro">Couro</option>
+                        <option value="Malha">Malha</option>
+                        <option value="Ouro">Ouro</option>
+                        <option value="Ferro">Ferro</option>
+                        <option value="Diamante">Diamante</option>
+                        <option value="Netherite">Netherite</option>
+                    </select>
+                </div>
+                
+                <div id="div_img_peitoral"></div>
+
+                <div id="div_calca">
+                    Calça: <br>
+                    <select id="slct_calca" onchange="aparecerCalca()" class="grid-select">
+                        <option value="" disabled selected hidden>Selecione uma opção</option>
+                        <option value="Couro">Couro</option>
+                        <option value="Malha">Malha</option>
+                        <option value="Ouro">Ouro</option>
+                        <option value="Ferro">Ferro</option>
+                        <option value="Diamante">Diamante</option>
+                        <option value="Netherite">Netherite</option>
+                    </select>
+                </div>
+
+                <div id="div_img_calca"></div>
+                
+                <div id="div_botas">
+                    Botas: <br>
+                    <select id="slct_botas" onchange="aparecerBotas()" class="grid-select">
+                        <option value="" disabled selected hidden>Selecione uma opção</option>
+                        <option value="Couro">Couro</option>
+                        <option value="Malha">Malha</option>
+                        <option value="Ouro">Ouro</option>
+                        <option value="Ferro">Ferro</option>
+                        <option value="Diamante">Diamante</option>
+                        <option value="Netherite">Netherite</option>
+                    </select>
+                </div>
+                <div id="div_img_botas"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
+<script>
+    function aparecerCapacete(){
+
+        let slctCapacete = document.getElementById('slct_capacete');
+        let divImg = document.getElementById('div_img_capacete');
+
+        let elemento = slctCapacete.value;
+
+        divImg.innerHTML = `<img src="./css/assets/armadura/capacete-${elemento}.webp" alt="capacete-${elemento}">`
+
+    }
+        function aparecerPeitoral(){
+
+        let slctPeitoral = document.getElementById('slct_peitoral');
+        let divImg = document.getElementById('div_img_peitoral');
+
+        let elemento = slctPeitoral.value;
+
+        divImg.innerHTML = `<img src="./css/assets/armadura/peitoral-${elemento}.webp" alt="peitoral-${elemento}">`
+
+    }
+        function aparecerCalca(){
+
+        let slctCalca = document.getElementById('slct_calca');
+        let divImg = document.getElementById('div_img_calca');
+
+        let elemento = slctCalca.value;
+
+        divImg.innerHTML = `<img src="./css/assets/armadura/calca-${elemento}.webp" alt="calca-${elemento}">`
+
+    }
+        function aparecerBotas(){
+
+        let slctBotas = document.getElementById('slct_botas');
+        let divImg = document.getElementById('div_img_botas');
+
+        let elemento = slctBotas.value;
+
+        divImg.innerHTML = `<img src="./css/assets/armadura/botas-${elemento}.webp" alt="botas-${elemento}">`
+
+    }
+</script>

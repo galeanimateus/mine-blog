@@ -376,10 +376,11 @@ canvas {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 40px auto 20px auto;
 }
 
 .hello h3 {
-  color: #e3b062;
+  color: black;
   font-weight: 300;
   font-size: 1.2rem;
 }
@@ -429,4 +430,46 @@ canvas {
   padding: 10px 15px;
   margin-bottom: 100px;
   cursor: pointer;
+}
+.layout-dashboard{
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+}
+.sidebar{
+    position: fixed;
+    z-index: 999;
+    height: 100vh;
+    width: 20%;
+    background-color: whitesmoke;
+    color: black;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+.aba{
+    padding: 10px;
+    width: 200px;
+    margin: 20px;
+    text-align: center;
+    font-size: large;
+    list-style: none;
+}
+.aba:hover{
+    border-radius: 10px;
+    border: solid rgba(0, 0, 0, 0.54) 3px;
+}
+.botao-sair{
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+.conteudo-principal{
+    flex: 1;
+    padding: 20px;
+}
+.fundo-grafico{
+    /* background-image: url('./assets/fundo/fundo-pedra.jpg'); */
+    background-color: white;
 }

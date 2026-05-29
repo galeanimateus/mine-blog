@@ -1,10 +1,36 @@
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('./assets/fundo/vila-noite.png');
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 50px;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+    padding: 30px;
+    margin: 0 0 30px;
+    border-radius: 10px;
+    font-size: x-large;
+    border: solid #2d512e 3px;
+    background-color: hsl(83, 89%, 79%);
+}
 .grid{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     gap: 15px;
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
+    max-height: 100vh;
 }
 
 .carta{
@@ -36,7 +62,7 @@
 
 } 
 
-.carta:hover{
+.revelar-carta{
     transform: rotateY(180deg);
 }
 
@@ -44,4 +70,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.disable-carta{
+    filter: saturate(0);
+    opacity: 0.5;
+    transition: all 1000ms ease;
 }
