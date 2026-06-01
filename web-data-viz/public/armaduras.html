@@ -22,19 +22,14 @@
                     <li><a href="pessoal.html">PESSOAL</a></li>
                 </ul>
             </div>
-            <div class="dropdown">
-                <button onclick="abrirMenu()" class="dropbtn">
-                    <img src="css/assets/icons/profile-icon-pixel-removebg-preview.png" alt="icon-profile"> CONTA
-                </button>
-                <div id="menuConta" class="dropdown-content">
-                    <a href="login.html" class="item-entrar">ENTRAR</a>
-                    <a href="cadastro.html">CRIAR CONTA</a>
+                <div id="div_menu_conta" class="menu-conta">
+                    <button><a href="login.html" class="item-entrar">ENTRAR</a></button>
+                    <button><a href="cadastro.html">CRIAR CONTA</a></button>
                 </div>
-            </div>
         </nav>
     </header>
     <main class="layout-armadura">
-        <div class="quadro">
+        <div class="quadro-armadura">
             <div class="titulo">
                 <h1>Calculadora de Danos</h1>
                 <h4>Veja o quanto sua armadura te proteje</h4> <br>
@@ -60,12 +55,12 @@
                     Peitoral: <br>
                     <select id="slct_peitoral" onchange="aparecerPeitoral()" class="grid-select">
                         <option value="" disabled selected hidden>Selecione uma opção</option>
-                        <option value="Couro">Couro</option>
-                        <option value="Malha">Malha</option>
-                        <option value="Ouro">Ouro</option>
-                        <option value="Ferro">Ferro</option>
-                        <option value="Diamante">Diamante</option>
-                        <option value="Netherite">Netherite</option>
+                        <option value="couro">Couro</option>
+                        <option value="malha">Malha</option>
+                        <option value="ouro">Ouro</option>
+                        <option value="ferro">Ferro</option>
+                        <option value="diamante">Diamante</option>
+                        <option value="netherite">Netherite</option>
                     </select>
                 </div>
                 
@@ -75,12 +70,12 @@
                     Calça: <br>
                     <select id="slct_calca" onchange="aparecerCalca()" class="grid-select">
                         <option value="" disabled selected hidden>Selecione uma opção</option>
-                        <option value="Couro">Couro</option>
-                        <option value="Malha">Malha</option>
-                        <option value="Ouro">Ouro</option>
-                        <option value="Ferro">Ferro</option>
-                        <option value="Diamante">Diamante</option>
-                        <option value="Netherite">Netherite</option>
+                        <option value="couro">Couro</option>
+                        <option value="malha">Malha</option>
+                        <option value="ouro">Ouro</option>
+                        <option value="ferro">Ferro</option>
+                        <option value="diamante">Diamante</option>
+                        <option value="netherite">Netherite</option>
                     </select>
                 </div>
 
@@ -90,62 +85,123 @@
                     Botas: <br>
                     <select id="slct_botas" onchange="aparecerBotas()" class="grid-select">
                         <option value="" disabled selected hidden>Selecione uma opção</option>
-                        <option value="Couro">Couro</option>
-                        <option value="Malha">Malha</option>
-                        <option value="Ouro">Ouro</option>
-                        <option value="Ferro">Ferro</option>
-                        <option value="Diamante">Diamante</option>
-                        <option value="Netherite">Netherite</option>
+                        <option value="couro">Couro</option>
+                        <option value="malha">Malha</option>
+                        <option value="ouro">Ouro</option>
+                        <option value="ferro">Ferro</option>
+                        <option value="diamante">Diamante</option>
+                        <option value="netherite">Netherite</option>
                     </select>
                 </div>
                 <div id="div_img_botas"></div>
             </div>
+            <hr>
+            <div class="resposta" id="div_resposta">
+                <h4> Insira um valor de dano para ver o quanto a sua armadura o proteje:</h4>
+                <input type="text" id="ipt_dano">
+                <button onclick="calcular()" class="botao-mine">Calcular</button>
+            </div>
         </div>
     </main>
-    <footer>
-
+    <footer class="footer">
+        <div>
+            <div>
+                <p>Site Desenvolvido por: Mateus Borges Galeani - 2026</p>
+            </div>
+            <div>
+                <ul>
+                    <a href="https://github.com/galeanimateus?tab=repositories">GitHub</a> -
+                    <a href="https://github.com/galeanimateus/mine-blog">Repositório</a> -
+                    <a href="https://linkedin.com/in/mateus-borges-galeani-687192213">Linkedin</a>
+                </ul>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
 <script>
+    let lista = 
+      [
+  { nome: "capacete", material: "couro", pontuacao: 1 },
+  { nome: "peitoral", material: "couro", pontuacao: 3 },
+  { nome: "calca", material: "couro", pontuacao: 2 },
+  { nome: "botas", material: "couro", pontuacao: 1 },
+  
+  { nome: "capacete", material: "ouro", pontuacao: 2 },
+  { nome: "peitoral", material: "ouro", pontuacao: 5 },
+  { nome: "calca", material: "ouro", pontuacao: 3 },
+  { nome: "botas", material: "ouro", pontuacao: 1 },
+  
+  { nome: "capacete", material: "malha", pontuacao: 2 },
+  { nome: "peitoral", material: "malha", pontuacao: 5 },
+  { nome: "calca", material: "malha", pontuacao: 4 },
+  { nome: "botas", material: "malha", pontuacao: 1 },
+  
+  { nome: "capacete", material: "ferro", pontuacao: 2 },
+  { nome: "peitoral", material: "ferro", pontuacao: 6 },
+  { nome: "calca", material: "ferro", pontuacao: 5 },
+  { nome: "botas", material: "ferro", pontuacao: 2 },
+  
+  { nome: "capacete", material: "diamante", pontuacao: 3 },
+  { nome: "peitoral", material: "diamante", pontuacao: 8 },
+  { nome: "calca", material: "diamante", pontuacao: 6 },
+  { nome: "botas", material: "diamante", pontuacao: 3 },
+  
+  {nome: "capacete", material: "netherite", pontuacao: 3 },
+  {nome: "peitoral", material: "netherite", pontuacao: 8 },
+  {nome: "calca", material: "netherite", pontuacao: 6 },
+  {nome: "botas", material: "netherite", pontuacao: 3 }
+    ];
+
     function aparecerCapacete(){
 
-        let slctCapacete = document.getElementById('slct_capacete');
-        let divImg = document.getElementById('div_img_capacete');
-
-        let elemento = slctCapacete.value;
-
-        divImg.innerHTML = `<img src="./css/assets/armadura/capacete-${elemento}.webp" alt="capacete-${elemento}">`
+        let elementoCapacete = slct_capacete.value;
+        div_img_capacete.innerHTML = `<img src="./css/assets/armadura/capacete-${elementoCapacete}.webp" alt="capacete-${elementoCapacete}">`
 
     }
         function aparecerPeitoral(){
 
-        let slctPeitoral = document.getElementById('slct_peitoral');
-        let divImg = document.getElementById('div_img_peitoral');
-
-        let elemento = slctPeitoral.value;
-
-        divImg.innerHTML = `<img src="./css/assets/armadura/peitoral-${elemento}.webp" alt="peitoral-${elemento}">`
-
+        let elementoPeitoral = slct_peitoral.value;
+        div_img_peitoral.innerHTML = `<img src="./css/assets/armadura/peitoral-${elementoPeitoral}.webp" alt="peitoral-${elementoPeitoral}">`
+    
     }
         function aparecerCalca(){
 
-        let slctCalca = document.getElementById('slct_calca');
-        let divImg = document.getElementById('div_img_calca');
-
-        let elemento = slctCalca.value;
-
-        divImg.innerHTML = `<img src="./css/assets/armadura/calca-${elemento}.webp" alt="calca-${elemento}">`
-
+        let elementoCalca = slct_calca.value;
+        div_img_calca.innerHTML = `<img src="./css/assets/armadura/calca-${elementoCalca}.webp" alt="calca-${elementoCalca}">`
+        
     }
         function aparecerBotas(){
 
-        let slctBotas = document.getElementById('slct_botas');
-        let divImg = document.getElementById('div_img_botas');
+        let elementoBotas = slct_botas.value;
+        div_img_botas.innerHTML = `<img src="./css/assets/armadura/botas-${elementoBotas}.webp" alt="botas-${elementoBotas}">`
+        
+    }
 
-        let elemento = slctBotas.value;
+    function calcular(){
+//  1 ponto reduz 4% do dano total uma o max que a armadura reduz é 80% do dano resultando em 20 pontos de armadura
+        let valorProtecao = 0;
+        let dano = Number(ipt_dano.value);
+        let elementoBotas = slct_botas.value;
+        let elementoCalca = slct_calca.value;
+        let elementoPeitoral = slct_peitoral.value;
+        let elementoCapacete = slct_capacete.value;
+        let msg = ``;
+        for (let i = 0; i < lista.length; i++){
+            if (elementoCapacete == lista[i].material && lista[i].nome == 'capacete'){valorProtecao += lista[i].pontuacao; break}
+        }
+        for (let i = 0; i < lista.length; i++){
+            if (elementoPeitoral == lista[i].material && lista[i].nome == 'peitoral'){valorProtecao += lista[i].pontuacao; break} 
+        }
+        for (let i = 0; i < lista.length; i++){    
+            if (elementoCalca == lista[i].material && lista[i].nome == 'calca'){valorProtecao += lista[i].pontuacao; break} 
+        }
+        for (let i = 0; i < lista.length; i++){
+            if (elementoBotas == lista[i].material && lista[i].nome == 'botas'){valorProtecao += lista[i].pontuacao; break}
+        }
+        msg = `O seu conjunto de armadura protege: ${valorProtecao * 4}% (do dano). <br>
+        Então se você receber ${dano} de dano, ela reduzirá ${dano * (valorProtecao * 4) / 100}`
 
-        divImg.innerHTML = `<img src="./css/assets/armadura/botas-${elemento}.webp" alt="botas-${elemento}">`
-
+        div_resposta.innerHTML += msg;        
     }
 </script>

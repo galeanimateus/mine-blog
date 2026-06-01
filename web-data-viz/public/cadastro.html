@@ -17,24 +17,18 @@
 <body>
     <header>
         <nav>
-            <div class="logo"><a href="index.html"><img src="css/assets/fundo/logo-mine-remove.png"
-                        alt="logo-minecraft"></a></div>
+            <div class="logo"><a href="index.html"><img src="css/assets/fundo/logo-mine-remove.png" alt="logo-minecraft"></a></div>
             <div id="div_topic" class="topic">
                 <ul>
-                    <li><a href="index.html">SOBRE</a></li>
+                    <li><a href="index.html#div-seja-bem-vindo" id="a_sobre">SOBRE</a></li>
                     <li><a href="quiz.html">QUIZ</a></li>
                     <li><a href="pessoal.html">PESSOAL</a></li>
                 </ul>
             </div>
-            <div class="dropdown">
-                <button onclick="abrirMenu()" class="dropbtn">
-                    <img src="css/assets/icons/profile-icon-pixel-removebg-preview.png" alt="icon-profile"> CONTA
-                </button>
-                <div id="menuConta" class="dropdown-content">
-                    <a href="login.html" class="item-entrar">ENTRAR</a>
-                    <a href="cadastro.html">CRIAR CONTA</a>
+                <div id="div_menu_conta" class="menu-conta">
+                    <button><a href="login.html" class="item-entrar">ENTRAR</a></button>
+                    <button><a href="cadastro.html">CRIAR CONTA</a></button>
                 </div>
-            </div>
         </nav>
     </header>
     <main class="main-index">
@@ -65,21 +59,25 @@
                         <div id="div_msg_erro5" class="erro-cadastro fonte-mine"></div>
                         <div class="div-button" id="div_but_cad">
                             <button class="botao-mine2 fonte-mine" onclick="cadastrar()">Cadastrar</button>
-                            <div id="div_cad_concluido" class="concluido"></div>
                         </div>
                     </div>
+                    <div id="div_cad_concluido" class="concluido"></div>
                 </div>
             </div>
         </div>
     </main>
-    <footer>
+    <footer class="footer">
         <div>
             <div>
                 <p>Site Desenvolvido por: Mateus Borges Galeani - 2026</p>
             </div>
-            <ul>
-                <a href="https://github.com/galeanimateus/meu-projeto-individual">GitHub</a>
-            </ul>
+            <div>
+                <ul>
+                    <a href="https://github.com/galeanimateus?tab=repositories">GitHub</a> -
+                    <a href="https://github.com/galeanimateus/mine-blog">Repositório</a> -
+                    <a href="https://linkedin.com/in/mateus-borges-galeani-687192213">Linkedin</a>
+                </ul>
+            </div>
         </div>
     </footer>
 </body>

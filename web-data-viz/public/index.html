@@ -8,9 +8,6 @@
 
     <title>MineBlog | Página Inicial</title>
 
-    <script src="js/abrir-menu.js"></script>
-    <script src="js/abrir-menu.js"></script>
-
      <link rel="stylesheet" href="css/style.css">
      <link rel="stylesheet" href="css/fonte.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -27,15 +24,10 @@
                     <li><a href="pessoal.html">PESSOAL</a></li>
                 </ul>
             </div>
-            <div class="dropdown">
-                <button onclick="abrirMenu()" class="dropbtn">
-                    <img src="css/assets/icons/profile-icon-pixel-removebg-preview.png" alt="icon-profile"> CONTA
-                </button>
-                <div id="menuConta" class="dropdown-content">
-                    <a href="login.html" class="item-entrar">ENTRAR</a>
-                    <a href="cadastro.html">CRIAR CONTA</a>
+                <div id="div_menu_conta" class="menu-conta">
+                    <button><a href="login.html" class="item-entrar">ENTRAR</a></button>
+                    <button><a href="cadastro.html">CRIAR CONTA</a></button>
                 </div>
-            </div>
         </nav>
     </header>
     <main class="main-index">
@@ -79,14 +71,18 @@
             </div>
         </div>
     </main>
-    <footer>
+    <footer class="footer">
         <div>
             <div>
                 <p>Site Desenvolvido por: Mateus Borges Galeani - 2026</p>
             </div>
-            <ul>
-                <a href="https://github.com/galeanimateus/meu-projeto-individual">GitHub</a>
-            </ul>
+            <div>
+                <ul>
+                    <a href="https://github.com/galeanimateus?tab=repositories">GitHub</a> -
+                    <a href="https://github.com/galeanimateus/mine-blog">Repositório</a> -
+                    <a href="https://linkedin.com/in/mateus-borges-galeani-687192213">Linkedin</a>
+                </ul>
+            </div>
         </div>
     </footer>
 </body>

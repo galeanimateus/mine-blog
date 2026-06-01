@@ -9,6 +9,7 @@ body{
 nav{
 
     background-color: whitesmoke;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,78 +49,6 @@ a:hover{
 
     color: #134e20;
 }
-
-.dropdown {
-
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn{
-
-    background-color: transparent;
-    border: none;
-    font-size: large;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.dropbtn img {
-
-    height: 30px;
-    width: 30px;
-}
-
-.dropdown-content{
-
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background-color: whitesmoke;
-    min-width: 150px;
-    box-shadow: 0px 5px 20px rgb(50, 50, 50);
-    z-index: 1;
-    border: 1px solid rgba(151, 149, 149, 0.804);
-
-}
-
-.dropdown-content a{
-
-    color: black;
-    padding: 15px 20px;
-    text-decoration: none;
-    display: block;
-    font-weight: bold;
-}
-
-.dropdown-content a:hover{
-
-    color: #28a745;
-}
-
-.item-entrar{
-
-    border-bottom: 2px solid rgba(151, 149, 149, 0.804);
-}
-
-.mostrar {
-    display: block;
-}
-
-.main-index{
-
-    padding-bottom: 420px;
-}
-
-.main-login{
-
-    padding-bottom: 180px;
-}
-
 #img-minecraft{
     max-width: 1540px;
     min-width: 400px;
@@ -151,6 +80,22 @@ a:hover{
     padding: 0 0 15px 220px;
     font-weight: lighter;
     font-size: xxx-large;
+}
+.menu-conta{
+    display: flex;
+    flex-direction: row;
+}
+.menu-conta a{
+    padding: 10px;
+}
+.menu-conta button{
+    padding: 10px;
+    margin: 10px;
+    font-size: large;
+    border: none;
+}
+.menu-conta button:hover{
+    background-color: rgb(234, 234, 234);
 }
 
 .div-cinza-claro{
@@ -207,6 +152,7 @@ a:hover{
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 5px 20px rgb(50, 50, 50);
+    margin: 30px 0 30px 0;
 }
 
 .botao-mine{
@@ -291,22 +237,25 @@ a:hover{
     margin-bottom: 28px;
 }
 
-footer{
+.footer{
 
     background-color: #3b3d3a; 
+    margin-top: 70px;
     padding: 15px;
     box-shadow: 0px -3px 3px 2px rgba(40, 39, 39, 0.477);
 }
 
-footer > div{
+.footer div{
     
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 5px 20px 5px 20px;
     color: rgb(185, 182, 182);
 }
 
-footer > p{
+.footer p{
 
     font-weight: lighter;
     padding-left: 20px;
@@ -326,7 +275,7 @@ footer > p{
 
     background-color: #3b3d3a;
     width: 600px;
-    height: 600px;
+    height: auto;
     box-shadow: 0px 5px 20px rgba(23, 23, 23, 0.478);
     display: flex;
     align-items: center;
@@ -345,7 +294,13 @@ footer > p{
 
 #div_neto{
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 10px;
+    margin-bottom: 30px;
+    width: 350px;   
+    box-sizing: border-box;
 }
 
 #div_neto > span{
@@ -382,12 +337,14 @@ footer > p{
 #div_pai_cadastro{
     
     background-color: #3b3d3a;
+    box-sizing: border-box;
     width: 550px;
-    height: 920px;
+    height: auto;
     box-shadow: 0px 5px 20px rgba(23, 23, 23, 0.478);
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 40px 20px 40px 20px;
 }
 
 .div-button{
@@ -398,7 +355,7 @@ footer > p{
 }
 
 .erro-cadastro{
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
     font-weight: lighter;
     font-size: small;
     text-shadow: 0px 1px 1px rgb(50, 50, 50);
@@ -407,9 +364,9 @@ footer > p{
 
 .erro{
 
-    padding: 25px 15px 15px 15px;
+    padding: 0px 15px 45px 15px;
     text-align: center;
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
     font-weight: lighter;
     text-shadow: 0px 1px 1px rgb(50, 50, 50);
 }
@@ -451,6 +408,14 @@ html{
 
 }
 
+.texto{
+
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    min-height: 205px;
+} 
+
 .quadro{
     padding: 10px;
     display: flex;
@@ -463,12 +428,3 @@ html{
     height: 100px;
     margin: 10px 20px 10px 10px;
 }
-
-.texto{
-
-    display: flex;
-    flex-direction: column;
-    min-width: 180px;
-    min-height: 205px;
-}
-
