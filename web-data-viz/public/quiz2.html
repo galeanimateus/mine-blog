@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo - Quiz</title>
+    <link rel="stylesheet" href="./css/quiz2.css">
+    <link rel="stylesheet" href="./css/fonte.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+
+<body onload="onloadEsconder()">
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html"><img src="css/assets/fundo/logo-mine-remove.png"
+                        alt="logo-minecraft"></a></div>
+            <div id="div_topic" class="topic">
+                <ul>
+                    <li><a href="index.html#div-seja-bem-vindo" id="a_sobre">SOBRE</a></li>
+                    <li><a href="quiz.html">QUIZ</a></li>
+                    <li><a href="pessoal.html">PESSOAL</a></li>
+                </ul>
+            </div>
+            <div id="div_menu_conta" class="menu-conta">
+                <button><a href="login.html" class="item-entrar">ENTRAR</a></button>
+                <button><a href="cadastro.html">CRIAR CONTA</a></button>
+            </div>
+        </nav>
+    </header>
+    <main class="main-quiz">
+
+        <div id="pontuacaoEJogo">
+            <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="botao-mine">INICIAR QUIZ</button>
+
+            <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+
+                </div>
+                <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+
+                </div>
+            </div>
+
+            <div id="jogo" class="width-fit-content flex-colunar border-secondary teste">
+                <div class="borda">
+
+                    <div id="infoQuestao" class="padding-8">
+                        <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span> questões.</span>
+                    </div>
+
+                    <div id="perguntaDaQuestaoAtual" class="padding-8">
+                        <span id="spanQuestaoExibida" class="text-bold"></span>
+                    </div>
+
+                    <div id="opcoes" class="flex-colunar padding-8">
+                        <span>
+                            <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                            <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                            <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                            <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                            <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="quintaOpcao" name="option" class="radio" value="alternativaE" />
+                            <label for="quintaOpcao" class="option" id="labelOpcaoCinco"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="sextaOpcao" name="option" class="radio" value="alternativaF" />
+                            <label for="sextaOpcao" class="option" id="labelOpcaoSeis"></label>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="botoes" class="flex-colunar padding-8">
+                    <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                    <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                    <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                    <button onclick="tentarNovamente()" id="btnMostrarResultados" style="display: none;">Tentar novamente</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+        <footer class="footer">
+        <div>
+            <div>
+                <p>Site Desenvolvido por: Mateus Borges Galeani - 2026</p>
+            </div>
+            <div>
+                <ul>
+                    <a href="https://github.com/galeanimateus?tab=repositories">GitHub</a> -
+                    <a href="https://github.com/galeanimateus/mine-blog">Repositório</a> -
+                    <a href="https://linkedin.com/in/mateus-borges-galeani-687192213">Linkedin</a>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script>
+    const listaDeQuestoes = [
+        {
+            pergunta: "É a sua primeira noite no jogo novo. O que você está fazendo?",
+            alternativaA: "Construindo uma casa inicial com um telhado bonitinho e janelas simétricas.",
+            alternativaB: "Cavando para encontrar ferro e redstone para já começar a planejar suas primeiras máquinas.",
+            alternativaC: "Fazendo uma espada de pedra e saindo na escuridão para caçar zumbis e creepers.",
+            alternativaD: "Pegando 3 lãs, fazendo uma cama, conseguindo ferro para um balde e indo direto procurar poços de lava.",
+            alternativaE: "Derrubando todas as árvores da região e guardando cada graveto e muda de árvore em baús espalhados pelo chão.",
+            alternativaF: "Fazendo um abrigo simples (uma caixa de madeira ou um buraco na montanha) só para passar a noite em segurança."
+        },
+        {
+            pergunta: "Você acabou de encontrar uma Vila. Qual é a sua primeira ação?",
+            alternativaA: "Analisar a arquitetura e pensar em como reformar e expandir as casas para deixá-las mais bonitas.",
+            alternativaB: "Prender os villagers em buracos para criar uma farm de ferro ou um salão de trocas automatizado.",
+            alternativaC: "Pegar os itens dos baús e ir embora rápido para procurar um Posto Avançado dos Saqueadores.",
+            alternativaD: "Roubar todas as camas e os fardos de feno o mais rápido possível e continuar correndo.",
+            alternativaE: "Levar as camas, o feno, as portas, os baús, as plantações e até o sino da vila. Tudo pode ser útil um dia.",
+            alternativaF: "Dando uma olhada nas trocas, pegando um pouco de comida e usando a cama deles para salvar o ponto de renascimento (spawn)."
+        },
+        {
+            pergunta: "Como é o seu estilo de mineração?",
+            alternativaA: "Minerar blocos específicos, como ardósia profunda (deepslate) ou terracota, só porque combinam com a sua próxima base.",
+            alternativaB: "Focar em redstone, ferro (para fazer funis) e procurar chunks de slime.",
+            alternativaC: "Explorar cavernas gigantes e minas abandonadas, lutando contra tudo que aparecer pela frente.",
+            alternativaD: "Descer, pegar exatamente o ouro e ferro necessários e subir. Minerar sem objetivo é perda de tempo.",
+            alternativaE: "Fazer túneis retos por horas a fio até seu inventário estar 100% lotado de pedregulhos e minérios.",
+            alternativaF: "Descer numa caverna qualquer, minerar carvão e ferro e, se der sorte de achar diamante, voltar para casa feliz."
+        },
+        {
+            pergunta: "Se eu abrir o seu inventário agora, o que vou encontrar a maior parte do tempo?",
+            alternativaA: "Vários tipos de blocos de construção, andaimes, corantes e tesouras.",
+            alternativaB: "Pistões, observadores, repetidores e pó de redstone.",
+            alternativaC: "Uma boa espada, arco, escudo, poções e comida de sobra.",
+            alternativaD: "Apenas o essencial de sobrevivência rápida: balde de água, camas, blocos de terra e comida.",
+            alternativaE: "Uma bagunça absoluta. Flores, carne podre, sementes, pedras, fios e coisas que você se recusa a jogar fora.",
+            alternativaF: "Um pouco de tudo: ferramentas, algumas madeiras, comida, tochas e um balde de água de precaução."
+        },
+        {
+            pergunta: "Você chegou ao The End. Qual é o foco?",
+            alternativaA: "Transformar a ilha principal e o portal em um hub interdimensional épico.",
+            alternativaB: "Fazer uma farm de Endermans para experiência infinita.",
+            alternativaC: "Explorar as End Cities para conseguir Elytras, matar Shulkers e pilhar os barcos voadores.",
+            alternativaD: "Explodir o dragão usando camas em menos de três minutos.",
+            alternativaE: "Minerar packs e mais packs de Pedra do Fim e coletar Bafo de Dragão em dezenas de frascos.",
+            alternativaF: "Tentar matar o dragão na raça, quebrando os cristais com flechas, e comemorar o fim da jornada."
+        },
+        {
+            pergunta: "Escolha o seu trio de itens favoritos:",
+            alternativaA: "Concreto, Madeira de Abeto, Quartzo.",
+            alternativaB: "Bloco de Slime, Observador, Funil.",
+            alternativaC: "Espada de Netherite, Maçã Dourada Encantada, Pérola de Ender.",
+            alternativaD: "Balde de Água, Cama, Pólvora.",
+            alternativaE: "Baús, Shulker Boxes, Molduras.",
+            alternativaF: "Picareta, Tocha, Pão (ou Bife)."
+        },
+        {
+            pergunta: "Como você lida com a comida no seu mundo?",
+            alternativaA: "Faço uma fazenda esteticamente perfeita, com moinhos de vento e campos de trigo ondulantes.",
+            alternativaB: "Construo uma máquina que assa frangos automaticamente e joga a carne direto em um baú.",
+            alternativaC: "Mato vacas e porcos com uma espada de Aspecto Flamejante enquanto corro pelo mapa.",
+            alternativaD: "Faço pães com o feno das vilas e troco itens com fazendeiros. É mais rápido.",
+            alternativaE: "Tenho 15 baús duplos lotados de cenouras, batatas e pães que eu provavelmente nunca vou conseguir comer.",
+            alternativaF: "Tenho uma pequena plantação perto de casa e um cercadinho com algumas vacas ou ovelhas para quando a fome bater."
+        },
+        {
+            pergunta: "Quando você joga em um servidor com amigos, qual é o seu papel?",
+            alternativaA: "O Arquiteto. Eu construo o spawn e a base de todo mundo para não ficar feio.",
+            alternativaB: "O Engenheiro. Eu construo as farms para que ninguém precise trabalhar por recursos.",
+            alternativaC: "O Mercenário/Xerife. Eu chamo o pessoal para o PvP ou lidero as invasões aos monumentos.",
+            alternativaD: "O Fantasma. Enquanto eles estão fazendo a primeira casa de madeira, eu já estou matando o Wither.",
+            alternativaE: "O Almoxarife. Eu fico na base organizando os itens de todo mundo e pedindo para não jogarem terra fora.",
+            alternativaF: "O Pau pra Toda Obra. Ajudo a construir um pouco, vou minerar quando falta material e exploro o mapa junto com a galera."
+        },
+        {
+            pergunta: "O que você pensa quando encontra Diamantes?",
+            alternativaA: "Ótimo, posso fazer blocos de diamante para decorar a sala do trono!",
+            alternativaB: "Útil para fazer uma picareta e minerar obsidiana para o meu próximo sistema.",
+            alternativaC: "Perfeito! Direto para a bancada fazer uma espada e peitoral para a próxima batalha.",
+            alternativaD: "Se demorar muito para quebrar, eu ignoro. Só pego se estiver na rota.",
+            alternativaE: "Vou pegar com Toque Suave (Silk Touch) e guardar os minérios inteiros no meu cofre secreto.",
+            alternativaF: "Aí sim! Vou fazer uma picareta para poder pegar obsidiana e montar minha mesa de encantamentos."
+        },
+        {
+            pergunta: "Qual é o seu objetivo final ao iniciar um novo mundo?",
+            alternativaA: "Construir um império visualmente impressionante do qual eu me orgulhe.",
+            alternativaB: "Automatizar a coleta de 100% dos recursos possíveis do jogo.",
+            alternativaC: "Derrotar todos os chefes, platinar as conquistas e explorar todas as estruturas raras.",
+            alternativaD: "Ver os créditos do jogo no menor tempo humanamente possível.",
+            alternativaE: "Ter pelo menos um pack (64) de todos os blocos e itens que existem no jogo guardados na minha base.",
+            alternativaF: "Ter uma base legal, construir aos poucos, ir para o The End um dia e simplesmente me divertir sem pressa."
+        }
+    ]
+
+    // variáveis globais    
+    let numeroDaQuestaoAtual = 0
+    let pontuacaoFinal = 0
+    let tentativaIncorreta = 0
+    let certas = 0
+    let erradas = 0
+    let quantidadeDeQuestoes = listaDeQuestoes.length
+    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+
+    function onloadEsconder() {
+        document.getElementById('pontuacao').style.display = "none"
+        document.getElementById('jogo').style.display = "none"
+    }
+
+    function iniciarQuiz() {
+        document.getElementById('pontuacao').style.display = "flex"
+        document.getElementById('jogo').style.display = "flex"
+        document.getElementById('btnIniciarQuiz').style.display = "none"
+
+        document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
+
+        preencherHTMLcomQuestaoAtual(0)
+
+        btnSubmeter.disabled = false
+        btnProx.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = true
+    }
+
+    function preencherHTMLcomQuestaoAtual(index) {
+        habilitarAlternativas(true)
+        const questaoAtual = listaDeQuestoes[index]
+        numeroDaQuestaoAtual = index
+        console.log("questaoAtual")
+        console.log(questaoAtual)
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+        document.getElementById("labelOpcaoCinco").innerHTML = questaoAtual.alternativaE;
+        document.getElementById("labelOpcaoSeis").innerHTML = questaoAtual.alternativaF;
+    }
+
+    function submeter() {
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let hasChecked = false
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                hasChecked = true
+                break
+            }
+        }
+
+        if (!hasChecked) {
+            alert("Não há alternativas escolhidas. Escolha uma opção.")
+        } else {
+            btnSubmeter.disabled = true
+            btnProx.disabled = false
+
+            habilitarAlternativas(false)
+
+            numeroDaQuestaoAtual++
+        }
+    }
+
+    function habilitarAlternativas(trueOrFalse) {
+        let opcaoEscolhida = trueOrFalse ? false : true
+
+        primeiraOpcao.disabled = opcaoEscolhida
+        segundaOpcao.disabled = opcaoEscolhida
+        terceiraOpcao.disabled = opcaoEscolhida
+        quartaOpcao.disabled = opcaoEscolhida
+        quintaOpcao.disabled = opcaoEscolhida
+        sextaOpcao.disabled = opcaoEscolhida
+
+    }
+
+    function avancar() {
+        btnProx.disabled = true
+        btnSubmeter.disabled = false
+
+        desmarcarRadioButtons()
+
+        if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
+            alert("Atenção... a próxima é a ultima questão!")
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else {
+            finalizarJogo()
+        }
+    }
+
+    function tentarNovamente() {
+        // atualiza a página
+        window.location.reload()
+    }
+
+    function checarResposta() {
+        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
+        const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
+
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let alternativaCorreta = null // variável para armazenar a alternativa correta
+
+        options.forEach((option) => {
+            if (option.value === respostaQuestaoAtual) {
+                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
+                alternativaCorreta = option.labels[0].id
+            }
+        })
+
+        // verifica se resposta assinalada é correta
+        options.forEach((option) => {
+            if (option.checked === true && option.value === respostaQuestaoAtual) {
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                pontuacaoFinal++
+                certas++
+                document.getElementById("spanCertas").innerHTML = certas
+                numeroDaQuestaoAtual++
+            } else if (option.checked && option.value !== respostaQuestaoAtual) {
+                const wrongLabelId = option.labels[0].id
+
+                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                tentativaIncorreta++
+                erradas++
+                document.getElementById("spanErradas").innerHTML = erradas
+                numeroDaQuestaoAtual++
+            }
+        })
+    }
+
+    function desmarcarRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+
+    function finalizarJogo() {
+        let textoParaMensagemFinal = null
+        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+
+        if (porcentagemFinalDeAcertos <= 0.3) {
+            textoParaMensagemFinal = "Parece que você não estudou..."
+            classComCoresParaMensagemFinal = "text-danger-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
+            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.9) {
+            textoParaMensagemFinal = "Uau, parabéns!"
+            classComCoresParaMensagemFinal = "text-success-with-bg"
+        }
+
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+
+
+        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+
+        document.getElementById('jogo').classList.add("text-new-gray") 
+        btnProx.style.displau = 'none'
+        btnSubmeter.style.displau = 'none'
+        // btnConcluir.disabled = true
+        btnbtnMostrarResultados.style.displau = 'flex'
+
+    }
+</script>

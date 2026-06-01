@@ -8,17 +8,15 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/fonte.css">
     <link rel="stylesheet" href="./css/armadura.css">
-
-    <script src="./js/abrir-menu.js"></script>
 </head>
-<body>
+<body class="body">
     <header>
-        <nav>
+        <nav class="nav">
             <div class="logo"><a href="index.html"><img src="css/assets/fundo/logo-mine-remove.png" alt="logo-minecraft"></a></div>
             <div id="div_topic" class="topic">
                 <ul>
                     <li><a href="index.html#div-seja-bem-vindo" id="a_sobre">SOBRE</a></li>
-                    <li><a href="quiz.html">QUIZ</a></li>
+                    <li><a href="quiz2.html">QUIZ</a></li>
                     <li><a href="pessoal.html">PESSOAL</a></li>
                 </ul>
             </div>
@@ -96,10 +94,13 @@
                 <div id="div_img_botas"></div>
             </div>
             <hr>
-            <div class="resposta" id="div_resposta">
+            <div class="resposta">
                 <h4> Insira um valor de dano para ver o quanto a sua armadura o proteje:</h4>
                 <input type="text" id="ipt_dano">
                 <button onclick="calcular()" class="botao-mine">Calcular</button>
+            </div>
+            <div class="resposta" id="div_resposta">
+
             </div>
         </div>
     </main>
@@ -202,6 +203,6 @@
         msg = `O seu conjunto de armadura protege: ${valorProtecao * 4}% (do dano). <br>
         Então se você receber ${dano} de dano, ela reduzirá ${dano * (valorProtecao * 4) / 100}`
 
-        div_resposta.innerHTML += msg;        
+        div_resposta.innerHTML = msg;        
     }
 </script>

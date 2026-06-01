@@ -1,0 +1,158 @@
+    /* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
+    /* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
+
+:root {
+    --primary-brand-color: #ED145B;
+    --secondary-brand-color: #0762C8;
+    --success: #198754;
+    --success-dark: #095c36;
+     --success-light: #9dd3ba;
+    --warning: #ffc107;
+    --warning-dark: #705400;
+    --warning-light: #fdebb3;
+    --danger: #dc3545;
+    --danger-dark: #990c19;
+    --danger-light: #f0c1c6;
+    --new-gray: #CCCCCC;
+    --new-black: #212427;
+    --new-white: #E8E8E8;
+}
+
+body {
+        color: var(--new-black);
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        min-height: 100vh;
+        background-image: url('./assets/fundo/vila-noite.png');
+        background-size: cover;
+    }
+nav{
+
+    background-color: whitesmoke;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 45px;
+    margin: 0;
+    box-shadow: 2px 5px 7px rgba(50, 50, 50, 0.595);
+    position: relative;
+    z-index: 1;
+
+}
+.logo img{
+
+    height: 60px;
+    width: auto;
+
+}
+
+.topic ul{
+    
+    display: flex;
+    list-style: none;
+    gap: 100px;
+    padding: 0;
+    margin: 0;
+    font-size: large;
+
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+a:hover{
+
+    color: #134e20;
+}
+
+button {
+    font-family: monospace;
+    font-weight: bold;
+}
+.main-quiz{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.flex-colunar {
+    display: flex;
+    flex-direction: column;
+}
+
+.width-fit-content {
+    width: fit-content;
+}
+
+.padding-8 {
+    padding: 10px 70px 10px 50px;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-success-with-bg {
+    color: var(--success-dark);
+    background-color: var(--success-light);
+}
+
+.text-warning-with-bg {
+    color: var(--warning-dark);
+    background-color: var(--warning-light);
+}
+
+.text-danger-with-bg {
+    color: var(--danger-dark);
+    background-color: var(--danger-light);
+}
+
+.text-new-gray {
+    color: var(--new-gray);
+}
+
+.teste{
+    background-image: url('./assets/fundo/fundo-livro.webp');
+    background-size: cover;
+    background-position: center;
+    min-height: 700px;
+    height: fit-content;
+    width: 600px;
+    margin-bottom: 50px;
+    padding-bottom: 40px;
+}
+.borda{
+    box-sizing: border-box;
+    border-radius: 30px;
+    padding: 30px 30px 0px 30px;
+}
+.flex-colunar span{
+    margin-bottom: 20px;
+}
+.flex-colunar button{
+    width: 90%;
+    align-self: center;
+    margin-top: 2px;
+    padding: 5px;
+    border: 3.5px solid black;
+    background-color: #6c6c6c;
+
+    color: white;
+    font-family: 'Monocraft';
+    text-shadow: 0px 2px 1px rgb(50, 50, 50);
+    font-weight: 400;
+    font-size: medium;
+    box-shadow: inset 3px 3px 2px rgba(224, 222, 222, 0.464), 
+                inset -3px -5px 2px rgba(28, 28, 28, 0.271);
+}
+.flex-colunar button:hover{
+    border-color: white;
+}
+.flex-colunar button:active{
+    background-color: rgb(162, 162, 162);
+}

@@ -1,12 +1,13 @@
-body{
+.body{
     background-color: rgba(0, 0, 0, 0.5);
     background-image: url(assets/fundo/fundo-terra-escuro.png);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    flex: 1;
 }
 
-nav{
+.nav{
 
     background-color: whitesmoke;
     
@@ -19,6 +20,13 @@ nav{
     position: relative;
     z-index: 1;
 
+}
+.main-index{
+    flex: 1;
+}
+
+.main-login{
+    flex: 1;
 }
 
 .logo img{
@@ -126,7 +134,8 @@ a:hover{
 
 #conteiner{
 
-    height: 300px;
+    box-sizing: border-box;
+    height: auto;
     width: auto;
     display: flex;
     justify-content: space-around
@@ -165,6 +174,7 @@ a:hover{
     background-color: #6c6c6c;
 
     color: white;
+    font-family: 'Monocraft';
     text-shadow: 0px 2px 1px rgb(50, 50, 50);
     font-weight: 400;
     font-size: x-large;
@@ -238,7 +248,6 @@ a:hover{
 }
 
 .footer{
-
     background-color: #3b3d3a; 
     margin-top: 70px;
     padding: 15px;
@@ -260,8 +269,6 @@ a:hover{
     font-weight: lighter;
     padding-left: 20px;
 }
-
-/* CSS login */
 
 #div_login{
 
@@ -298,7 +305,7 @@ a:hover{
     flex-direction: column;
     justify-content: center;
     padding: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     width: 350px;   
     box-sizing: border-box;
 }
@@ -332,8 +339,6 @@ a:hover{
     outline: none;
 }
 
-/* CSS Tela Cadastro */
-
 #div_pai_cadastro{
     
     background-color: #3b3d3a;
@@ -344,7 +349,7 @@ a:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px 40px 20px;
+    padding: 20px 20px 20px 20px;
 }
 
 .div-button{
