@@ -351,36 +351,89 @@
         }
     }
 
-    function finalizarJogo() {
-        document.getElementById('jogo').style.display = 'none';
+    function calcularPersonalidade(){
+        let pontos = {
+            A: 0,
+            B: 0,
+            C: 0,
+            D: 0,
+            E: 0,
+            F: 0,
+        }
+
+        for (let i = 0; i < respostasDoUsuario.length; i++){
+            if(respostasDoUsuario[i] == 'alternativaA'){pontos.A++}
+            else if(respostasDoUsuario[i] == 'alternativaB'){pontos.B++}
+            else if(respostasDoUsuario[i] == 'alternativaC'){pontos.C++}
+            else if(respostasDoUsuario[i] == 'alternativaD'){pontos.D++}
+            else if(respostasDoUsuario[i] == 'alternativaE'){pontos.E++}
+            else if(respostasDoUsuario[i] == 'alternativaF'){pontos.F++}
+        }
+
+        let maiorQuantidade = pontos.A;
+        let personalidade = 1;
+
+        if(pontos.B > maiorQuantidade) {
+            maiorQuantidade = pontos.B;
+            personalidade = 2;
+        }
         
-        let dadosUsuario = {
-            idUsuario: sessionStorage.ID_USUARIO, 
-            respostas: respostasDoUsuario 
-        };
+        if(pontos.C > maiorQuantidade) {
+            maiorQuantidade = pontos.C;
+            personalidade = 3;
+        }
+        
+        if(pontos.D > maiorQuantidade) {
+            maiorQuantidade = pontos.D;
+            personalidade = 4;
+        }
+        
+        if(pontos.E > maiorQuantidade) {
+            maiorQuantidade = pontos.E;
+            personalidade = 5;
+        }
+        
+        if(pontos.F > maiorQuantidade) {
+            maiorQuantidade = pontos.F;
+            personalidade = 6;
+        }
 
-        fetch("/quiz/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(dadosUsuario)
-        })
-        .then(function (resposta) {
-            if (resposta.ok) {
-                console.log("Respostas salvas no banco");
-                document.getElementById('msgFinal').innerHTML = "Quiz finalizado! Muito obrigado por jogar."; 
-            } else {
-                console.error("Erro ao salvar respostas.");
-                document.getElementById('msgFinal').innerHTML = "Erro ao finalizar o quiz, respostas não foram salvas.";
-            }
-        })
-        .catch(function (erro) {
-            console.error("Erro no fetch do quiz:", erro);
-        });
+        return personalidade;
+    }
 
-        document.getElementById('h1_msgFinal').style.display = 'flex';
-        document.getElementById('btnTentarNovamente').style.display = 'flex';
-        document.getElementById('btnVerResultados').style.display = 'flex';
+function finalizarJogo() {
+    document.getElementById('jogo').style.display = 'none';
+
+    let personalidadeCalculada = calcularPersonalidade(); 
+
+    let dadosUsuario = {
+        idUsuario: sessionStorage.ID_USUARIO, 
+        respostas: respostasDoUsuario,
+        idPersonalidade: personalidadeCalculada 
+    };
+
+    fetch("/quiz/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dadosUsuario)
+    })
+    .then(function (resposta) {
+        if (resposta.ok) {  
+            console.log("Respostas salvas no banco");
+            document.getElementById('msgFinal').innerHTML = "Quiz finalizado! Muito obrigado por jogar."; 
+        } else {
+            console.error("Erro ao salvar respostas.");
+            document.getElementById('msgFinal').innerHTML = "Erro ao finalizar o quiz, respostas não foram salvas.";
+        }
+    })
+    .catch(function (erro) {
+        console.error("Erro no fetch do quiz:", erro);
+    });
+
+    document.getElementById('msgFinal').style.display = 'flex';
+    document.getElementById('btnTentarNovamente').style.display = 'flex';
+    document.getElementById('btnVerResultados').style.display = 'flex';
 }
 </script>
