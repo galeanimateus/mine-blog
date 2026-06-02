@@ -14,9 +14,6 @@
     
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
-    <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
-
     <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -32,21 +29,23 @@
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
             <ul>
-                <li class="aba"><a href="" >INICIO</a></li>
-                <li class="aba"><a href="" >MEIO</a></li> 
-                <li class="aba"><a href="" >FIM</a></li>
+                <li class="aba"><a href="dashboard.html" >DASHBOARD</a></li>
+                <li class="aba"><a href="../quiz2.html" >QUIZ</a></li> 
             </ul>
-            <div class="botao-sair" onclick="limparSessao()">
-                        <h3>Sair</h3>
+            <div class="botao-sair">
+                        <button onclick="limparSessao()" class="btn-sair"><h3>SAIR</h3></button>
             </div>
         </aside>
         <main class="conteudo-principal">
-            <div class="cabecalho"></div>
-            <div class="kpi"></div>
-                <div class="fundo-grafico">
-                    <canvas id="myChart1"></canvas>
-                    <canvas id="myChart2"></canvas>
-                </div>
+            <div class="btns-dash" id="btnAquario">
+                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+                <div class="cabecalho"></div>
+                <div class="kpi"></div>
+            </div>
+            <div id="graficos">
+                <canvas id="myChart1"></canvas>
+                <canvas id="myChart2"></canvas>
+            </div>
         </main>
     </div>
     <footer class="footer">
@@ -63,42 +62,6 @@
             </div>
         </div>
     </footer>   
-    <!-- <div class="janela">
-        <div class="header-left">
-            <h1>AquaTech</h1>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-        </div>
-
-        <div class="dash">
-            <div id="alerta">
-            </div>
-
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-            </div>
-            <div id="graficos">
-            </div>
-        </div>
-    </div> -->
-
 
 </body>
 
